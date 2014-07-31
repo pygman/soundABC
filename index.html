@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body onkeydown="onk(event)">
+<table align="center"><tr><td>
+<canvas id="myCanvas" width="1000" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+</td></tr></table>
+<script>
+var c=document.getElementById("myCanvas");
+var audio=document.createElement("audio");
+var ctx=c.getContext("2d");
+var songZ="yui  ui p u     eey  ty i t     eer  eri  e    iiiu  tt u u      yui  ui p u   eey  ty i t      er iu  i oo pi   iuyyu t y     123  23 5 2     tt1  y1 3 3  2    yu1 u12 1  tt   4 3 2 1 3     3 6   5   321  12  12 5 3     3 6   5   321    12  12 u y     yui  ui p u     eey  ty i t     eer  eri  e    iiiu  tt u u      yui  ui p u   eey  ty i t      er iu  i oo pi   iuyyu t y     123  23 5 2     tt1  y1 3 3  2    yu1 u12 1  tt   4 3 2 1 3     3 6   5   321  12  12 5 3     3 6   5   321    12  12 u y      <|";
+var song;
+var time=-200;
+window.onload=function(){
+	song=songZ.split("").join("   ");
+	setInterval(per,20);
+	ctx.font="100px Verdana";
+	ctx.fillStyle="grey";
+	ctx.fillRect(360,0,40,160);
+	ctx.fillRect(360,280,40,320);
+}
+function per(){
+	ctx.clearRect(0,170,1000,110);
+	if(time%50==0){
+		ctx.fillStyle='#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+	}
+	ctx.fillText(song,-time*7,250);
+	time++;
+}
+function onk(event){
+		audio.src="raw2/"+String.fromCharCode(event.keyCode)+".ogg";
+		audio.play();
+	}
+</script>
+
+</body>
+</html>
